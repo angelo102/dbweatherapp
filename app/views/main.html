@@ -1,0 +1,27 @@
+
+<body ng-app="main.js">
+<div class="jumbotron">
+  <h1>Daily Weather!</h1>
+  <p class="lead">
+    <img src="images/partly_cloudy.png" alt="I'm Yeoman"><br>
+    Your weather at one place.
+  </p>
+  <p><a class="btn btn-lg btn-success" ng-href="#/temperature">Go to Weather!</a></p>
+</div>
+<pre><img src={{weather.current_observation.icon_url}} alt="<Image Placeholder>"><b>Temp:</b> {{weather.current_observation.temperature_string}} <b>Location:</b> {{weather.current_observation.observation_location.full}} </pre>
+<div class="row marketing">
+  <h4>Historical Weather Data</h4>
+  <p>
+    You can view historical weather information of your favorite cities by weather stations.
+  </p>
+
+  <h4>Technology</h4>
+  <p>
+    AngularJS, Node.js and HTML5 was used for the application development of this website.
+  </p>
+</div>
+
+  <div class="footer">
+    <p>♥ developed by Angel Romero</p>
+  </div>
+</body>

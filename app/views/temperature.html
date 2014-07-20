@@ -1,0 +1,50 @@
+<html>
+	<head>
+		<title>This in my First ng-grid</title>
+	</head>
+	
+	<body ng-app = "TemperatureCtrl">
+		
+		<div class="row well">
+			<div class="jumbotron">
+  				<p class="lead">
+  					<h2><img src="images/partly_cloudy.png" alt="Image_Placeholde">Historical Weather Data</h2>
+    				
+  				</p>
+  			</div>
+		<pre>Selected date is: <em>{{dt | date:'fullDate'}}</em></pre>
+		
+		<div class="col-lg-5 well">
+			<label>City:</label>
+			<select class="form-control" ng-model="searchCity" ng-options="c.CITY_NAME for c in cities | orderBy:'CITY_NAME'">
+				<option value="">-- All --</option>
+			</select> 
+			<br>
+			<label >Station:</label>
+			<select class="form-control" ng-model="searchStation" ng-options="s.STATION_NAME for s in stations | filter:searchCity">
+				<option value="">-- All -- </option>
+			</select>
+			<br>
+			<label>Date:</label>
+			<br>
+			<div style="display:inline-block;">
+				<div class="well-sm" ng-model="dt">
+					<datepicker min="minDate" show-weeks="false"></datepicker>
+				</div>
+			</div>
+			<br>
+			<button class="btn btn-success" ng-click="viewDate()">View</button>
+			<button class="btn btn-default" ng-click="clear()">Clear</button>
+		</div>
+		<div class="col-lg-7">
+			<h3>Temperatures</h3>
+			<div class="gridStyle well" ng-grid="gridOptions"></div>
+		</div>
+		</div>
+		
+	</body>
+	<div class="footer">
+    	<p>♥ developed by Angel Romero</p>
+  	</div>
+</html>
+

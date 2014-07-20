@@ -1,0 +1,42 @@
+
+<html>
+	<head>
+		<title>Modal Temp</title>
+	</head>
+
+<body  ng-app="TempdetailCtrl">
+<div class="modal-header">
+	<h4>Selected Date:</h4> <h2>{{tempData.DATE}}</h2>
+</div>
+
+<pre><b>City:</b>{{tempData.CITY_NAME}}<br><b>Station:</b>{{tempData.STATION_NAME}}</pre>
+<alert ng-repeat="alert in extremeAlerts" type="alert.type" close="closeAlert($index)">{{alert.msg}}</alert>
+<div class="row modal-body">
+	<div class="col-md-6 ">
+		<h4>Min Temperature</h4>
+		<h1 class="tempBox1">{{tempData.MIN_TEMP}} F</h1>
+	</div>
+	<div class="col-md-6">
+			<h4>Max Temperature</h4>
+			<h1 class="tempBox2">{{tempData.MAX_TEMP}} F</h1>
+	</div>
+</div>
+<div class="row">
+	<div  class="col-md-12">
+		<h4>Historic Minimum Temperature: <b>{{cityAvgData.min_temp}}</b> F</h4>
+		<h4>Historic Maximum Temperature: <b>{{cityAvgData.max_temp}}</b> F</h4>
+	</div>
+</div>
+
+<alert ng-repeat="alert in precAlerts" type="alert.type"> {{alert.msg}} </alert>
+
+<br>
+<div class="modal-footer">
+	<button class="btn btn-danger" ng-click="checkExtremes()">Extreme Events!</button>
+	<button class="btn btn-info" ng-click="precip()">View Precipitation</button>
+	<button class="btn btn-warning" ng-click="cancel()">Close</button>
+</div>
+</body>
+
+
+
